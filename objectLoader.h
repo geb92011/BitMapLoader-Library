@@ -3,11 +3,16 @@
 class objectLoader
 {
 public:
-	bool bitMapLoader();
-	bool bitMapRender(int, int);
+	bool bitMapLoader(int, int);
+	bool bitMapRender();
 	bool bitMapMove(int, int);
 
 	objectLoader(LPCWSTR, HDC);
+	// Int must not be 0 or NULL
+	objectLoader(LPCWSTR, HDC, int);
+
+	int getID();
+	LPCWSTR getFile();
 
 private:
 	LPCWSTR FileName;
@@ -15,6 +20,9 @@ private:
 	HDC hLocalDC;
 
 	HDC winDC;
+	int ID;
 
+	int xCord;
+	int yCord;
 };
 

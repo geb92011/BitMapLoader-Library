@@ -12,8 +12,33 @@ objectLoader::objectLoader(LPCWSTR file, HDC hwnd)
 
 }
 
-bool objectLoader::bitMapLoader()
+// Provides a second constructor for id number
+objectLoader::objectLoader(LPCWSTR file, HDC hwnd, int ID)
 {
+	this->ID = ID;
+	FileName = file;
+	qBitmap;
+	hLocalDC;
+	winDC = hwnd;
+
+}
+
+
+int objectLoader::getID()
+{
+	return ID;
+}
+// Returns the file name/path
+LPCWSTR objectLoader::getFile()
+{
+	return FileName;
+}
+
+
+bool objectLoader::bitMapLoader(int xCord, int yCord)
+{
+	this->xCord = xCord;
+	this->yCord = yCord;
 	// Load image file
 	HBITMAP hBitmap;
 	hBitmap = (HBITMAP)::LoadImage(NULL, FileName, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
@@ -59,11 +84,11 @@ bool objectLoader::bitMapLoader()
 	return true;
 }
 
-bool objectLoader::bitMapRender(int xPos, int yPos)
+bool objectLoader::bitMapRender()
 {
 	// Move the dc that holds the windows dc to the window dc
 
-	BOOL qRetBlit = BitBlt(winDC, xPos, yPos, qBitmap.bmWidth, qBitmap.bmHeight,
+	BOOL qRetBlit = BitBlt(winDC, xCord, yCord, qBitmap.bmWidth, qBitmap.bmHeight,
 		hLocalDC, 0, 0, SRCCOPY);
 
 	if (!qRetBlit)
@@ -79,16 +104,7 @@ bool objectLoader::bitMapRender(int xPos, int yPos)
 
 bool objectLoader::bitMapMove(int xPos, int yPos)
 {
-	// Move the dc that holds the windows dc to the window dc
-
-	BOOL qRetBlit = BitBlt(winDC, xPos, yPos, qBitmap.bmWidth, qBitmap.bmHeight,
-		hLocalDC, 0, 0, SRCCOPY);
-
-	if (!qRetBlit)
-	{
-		MessageBox(NULL, L"bmp blit failed",
-			L"Error", MB_OK);
-		return false;
-	}
+	xCord = xPos;
+	yCord = yPos;
 	return true;
 }
