@@ -13,6 +13,13 @@ public:
 	*/
 	bool addObject(int, LPCWSTR, int, int);
 
+	/*
+	Removes an object from the scene
+	@param int this is the ID, if this is NULL it will use the file name to remove the object
+	@param the LPCWSTR this is the file name if it is left NULL it will default to the ID
+	*/
+	bool removeObject(int, LPCWSTR);
+
 	/**
 	This changes the position of a .bmp in the current scene
 	@param LPCWSTR the name of the .bmp

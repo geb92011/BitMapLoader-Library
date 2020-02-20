@@ -5,6 +5,7 @@
 
 objectLoader::objectLoader(LPCWSTR file, HDC hwnd)
 {
+	ID = NULL;
 	FileName = file;
 	qBitmap;
 	hLocalDC;

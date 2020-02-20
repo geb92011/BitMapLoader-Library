@@ -26,6 +26,48 @@ bool bitScreen::addObject(int ID, LPCWSTR file, int initx, int inity)
 	pos++;
 }
 
+
+
+/*
+Removes an object from the scene
+@param int this is the ID, if this is NULL it will use the file name to remove the object
+@param the LPCWSTR this is the file name if it is left NULL it will default to the ID
+*/
+bool bitScreen::removeObject(int ID, LPCWSTR file)
+{
+	int pos = this->pos + 10;
+	if (ID == NULL)
+	{
+		for (int i = 0; i < this->pos; i++)
+		{
+			if (bmps[i].getFile == file)
+			{
+				pos = i;
+			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i < this->pos; i++)
+		{
+			if (bmps[i].getID == ID)
+			{
+				pos = i;
+			}
+		}
+	}
+	if (pos = this->pos + 10)
+	{
+		return false;
+	}
+	else
+	{
+		bmps.erase(bmps.begin() + pos);
+		this->pos--;
+		return true;
+	}
+}
+
 /**
 This changes the position of a .bmp in the current scene
 @param LPCWSTR the name of the .bmp
