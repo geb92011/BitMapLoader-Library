@@ -24,6 +24,7 @@ bool bitScreen::addObject(int ID, LPCWSTR file, int initx, int inity)
 	}
 	bmps[pos].bitMapLoader(initx, inity);
 	pos++;
+	return true;
 }
 
 
@@ -40,7 +41,7 @@ bool bitScreen::removeObject(int ID, LPCWSTR file)
 	{
 		for (int i = 0; i < this->pos; i++)
 		{
-			if (bmps[i].getFile == file)
+			if (bmps[i].getFile() == file)
 			{
 				pos = i;
 			}
@@ -50,7 +51,7 @@ bool bitScreen::removeObject(int ID, LPCWSTR file)
 	{
 		for (int i = 0; i < this->pos; i++)
 		{
-			if (bmps[i].getID == ID)
+			if (bmps[i].getID() == ID)
 			{
 				pos = i;
 			}
@@ -82,7 +83,7 @@ bool bitScreen::changePosition(int ID, LPCWSTR file, int xPos, int yPos)
 	{
 		for (int i = 0; i < pos; i++)
 		{
-			if (bmps[i].getFile == file)
+			if (bmps[i].getFile() == file)
 			{
 				bmpPos = i;
 			}
@@ -92,7 +93,7 @@ bool bitScreen::changePosition(int ID, LPCWSTR file, int xPos, int yPos)
 	{
 		for (int i = 0; i < pos; i++)
 		{
-			if (bmps[i].getID == ID)
+			if (bmps[i].getID() == ID)
 			{
 				bmpPos = i;
 			}

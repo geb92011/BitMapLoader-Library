@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BitMapLoaderLib.h" />
     <ClInclude Include="bitScreen.h" />
     <ClInclude Include="Dependencies.h" />
     <ClInclude Include="framework.h" />

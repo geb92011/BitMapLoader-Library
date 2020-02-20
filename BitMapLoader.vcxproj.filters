@@ -30,6 +30,9 @@
     <ClInclude Include="bitScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BitMapLoaderLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitMapLoader.cpp">
