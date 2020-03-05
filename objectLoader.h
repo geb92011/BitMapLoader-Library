@@ -7,9 +7,12 @@ public:
 	bool bitMapRender();
 	bool bitMapMove(int, int);
 
-	objectLoader(LPCWSTR, HDC);
+	objectLoader(LPCWSTR, HWND);
 	// Int must not be 0 or NULL
-	objectLoader(LPCWSTR, HDC, int);
+	objectLoader(LPCWSTR, HWND, int);
+
+	// Default constructor
+	objectLoader();
 
 	int getID();
 	LPCWSTR getFile();
@@ -19,7 +22,7 @@ private:
 	BITMAP qBitmap;
 	HDC hLocalDC;
 
-	HDC winDC;
+	HWND hWnd;
 	int ID;
 
 	int xCord;

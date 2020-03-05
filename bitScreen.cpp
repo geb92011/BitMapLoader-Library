@@ -1,11 +1,41 @@
 #include "pch.h"
 #include "bitScreen.h"
 
-bitScreen::bitScreen(HDC hWinDC)
+bitScreen::bitScreen()
 {
-	this->hWinDC = hWinDC;
-	pos = 0;
+
 }
+
+
+objectLoader newObject(HWND tWnd)
+{
+	return objectLoader(L"C:/Users/geb92/source/repos/Library tester/DEFAULTBACKGROUND.bmp", tWnd);
+}
+bitScreen::bitScreen(HWND hWnd, LPCWSTR background)
+{
+	if (background == NULL)
+	{
+		backGround = newObject(hWnd);
+	}
+	else
+	{
+		// Specified background
+		objectLoader backGround(background,hWnd); // = newObject(hWnd, background);
+	}
+	backGround.bitMapLoader(0, 0);
+
+	this->hWnd = hWnd;
+	pos = 0;
+
+	changed = true;
+}
+
+// Changes the background of the scene
+void bitScreen::changeBackGround(LPCWSTR)
+{
+
+}
+
 
 /**
 This adds a bmp to the scene
@@ -16,15 +46,17 @@ bool bitScreen::addObject(int ID, LPCWSTR file, int initx, int inity)
 {
 	if (ID == NULL)
 	{
-		bmps.push_back(objectLoader(file, hWinDC));
+		bmps.push_back(objectLoader(file, hWnd));
 	}
 	else
 	{
-		bmps.push_back(objectLoader(file, hWinDC, ID));
+		bmps.push_back(objectLoader(file, hWnd, ID));
 	}
 	bmps[pos].bitMapLoader(initx, inity);
 	pos++;
 	return true;
+
+	changed = true;
 }
 
 
@@ -67,6 +99,8 @@ bool bitScreen::removeObject(int ID, LPCWSTR file)
 		this->pos--;
 		return true;
 	}
+
+	changed = true;
 }
 
 /**
@@ -106,14 +140,25 @@ bool bitScreen::changePosition(int ID, LPCWSTR file, int xPos, int yPos)
 
 	bmps[bmpPos].bitMapMove(xPos, yPos);
 
+	changed = true;
+
 	return true;
 }
+
+// gets the changed variable to check for refresh
+bool bitScreen::getChanged()
+{
+	return changed;
+}
+
 
 // Refreshes the screen for this scene
 void bitScreen::refreshScreen()
 {
+	backGround.bitMapRender();
 	for (int i = 0; i < pos; i++)
 	{
 		bmps[i].bitMapRender();
 	}
+	changed = false;
 }

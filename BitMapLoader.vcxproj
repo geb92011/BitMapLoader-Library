@@ -151,12 +151,17 @@
     <ClInclude Include="bitScreen.h" />
     <ClInclude Include="Dependencies.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MenuImplamentation.h" />
+    <ClInclude Include="Menus.h" />
     <ClInclude Include="objectLoader.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitMapLoader.cpp" />
     <ClCompile Include="bitScreen.cpp" />
+    <ClCompile Include="MenuImplamentation.cpp" />
+    <ClCompile Include="Menus.cpp" />
     <ClCompile Include="objectLoader.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -164,6 +169,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

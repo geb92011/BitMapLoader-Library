@@ -4,7 +4,12 @@
 class bitScreen
 {
 public:
-	bitScreen(HDC);
+	bitScreen();
+	// File is background file name or directory
+	bitScreen(HWND, LPCWSTR);
+
+	// Changes the background of the scene
+	void changeBackGround(LPCWSTR);
 
 	/**
 	This adds a bmp to the scene 
@@ -32,13 +37,23 @@ public:
 	// Refreshes the screen for this scene
 	void refreshScreen();
 
+	// Gets if the screen has been changes since the last refresh
+	bool getChanged();
+
 private:
 	// The DC of the parent window
-	HDC hWinDC;
+	HWND hWnd;
 	// A vector of all the objects
 	std::vector<objectLoader> bmps;
+	
+	// Background
+	objectLoader backGround;
 
 	// THe current position in the bmp "array"
 	int pos;
+
+
+	// Holds the changed variable
+	bool changed;
 };
 
