@@ -5,6 +5,8 @@
 class Scene
 {
 public:
+	Scene();
+
 	Scene(bitScreen, Menus);
 
 

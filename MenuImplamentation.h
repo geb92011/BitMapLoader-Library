@@ -5,6 +5,10 @@
 class MenuImplamentation
 {
 public:
+	MenuImplamentation();
+
+	MenuImplamentation(Scene);
+
 	WPARAM getKey();
 
 	void setHandle(WPARAM);

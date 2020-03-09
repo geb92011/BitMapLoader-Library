@@ -1,7 +1,11 @@
 #include "pch.h"
 #include "Scene.h"
 
-
+Scene::Scene()
+{
+	screen = bitScreen();
+	menu = Menus();
+}
 
 
 Scene::Scene(bitScreen newScreen, Menus newMenu)
