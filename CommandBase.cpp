@@ -2,9 +2,9 @@
 #include "CommandBase.h"
 
 
-CommandBase::CommandBase()
+CommandBase::CommandBase(int id)
 {
-	ID = NULL;
+	ID = id;
 }
 
 void CommandBase::initialize()

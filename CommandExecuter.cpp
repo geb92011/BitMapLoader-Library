@@ -1,11 +1,14 @@
 #include "pch.h"
 #include "CommandExecuter.h"
 
+CommandExecuter::CommandExecuter()
+{
+	position = 0;
+}
 
-void CommandExecuter::createCommand(CommandBase cmd, int id)
+void CommandExecuter::createCommand(CommandBase cmd)
 {
 	commands.push_back(cmd);
-	position = 0;
 }
 
 void CommandExecuter::removeCommand(int id)

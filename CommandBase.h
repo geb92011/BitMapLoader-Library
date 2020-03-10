@@ -5,7 +5,7 @@
 class CommandBase
 {
 public:
-	CommandBase();
+	CommandBase(int);
 
 	void initialize();
 	void execute();

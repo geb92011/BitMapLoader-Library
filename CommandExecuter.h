@@ -8,7 +8,9 @@ class CommandExecuter
 {
 public:
 
-	void createCommand(CommandBase, int);
+	CommandExecuter();
+
+	void createCommand(CommandBase);
 
 	void removeCommand(int);
 
@@ -25,8 +27,6 @@ private:
 	std::vector<CommandBase> commands;
 
 	int position;
-
-	bool winHandleIND;
 
 };
 
