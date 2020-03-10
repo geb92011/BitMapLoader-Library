@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClInclude Include="BitMapLoaderLib.h" />
     <ClInclude Include="bitScreen.h" />
+    <ClInclude Include="CommandBase.h" />
+    <ClInclude Include="CommandExecuter.h" />
     <ClInclude Include="Dependencies.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MenuImplamentation.h" />
@@ -160,6 +162,8 @@
   <ItemGroup>
     <ClCompile Include="BitMapLoader.cpp" />
     <ClCompile Include="bitScreen.cpp" />
+    <ClCompile Include="CommandBase.cpp" />
+    <ClCompile Include="CommandExecuter.cpp" />
     <ClCompile Include="MenuImplamentation.cpp" />
     <ClCompile Include="Menus.cpp" />
     <ClCompile Include="objectLoader.cpp" />
